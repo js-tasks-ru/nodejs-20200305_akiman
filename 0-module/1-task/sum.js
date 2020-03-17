@@ -1,9 +1,10 @@
 function sum(a, b) {
-  if ([a, b].some((value) => typeof value !== 'number')) {
-    throw new TypeError();
-  }
-
-  return a + b;
+  /* ваш код */
+    if(parseInt(a)>=0 && parseInt(b)>=0) {
+        return a + b;
+    } else {
+        throw new TypeError();
+    }
 }
 
 module.exports = sum;
