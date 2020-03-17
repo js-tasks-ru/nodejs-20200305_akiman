@@ -4,7 +4,7 @@ const intervalId = setInterval(() => {
 
 setTimeout(() => {
   const promise = new Promise((resolve) => {
-    console.log('Richard');
+    console.log('Richard'); //1
     resolve('Robert');
   });
 
@@ -19,5 +19,5 @@ setTimeout(() => {
         }, 10);
       });
 
-  console.log('John');
+  console.log('John'); //2
 }, 10);
