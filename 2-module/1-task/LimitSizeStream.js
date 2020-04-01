@@ -17,7 +17,7 @@ class LimitSizeStream extends stream.Transform {
   }
 
   _transform(chunk, encoding, callback) {
-    this.count += this.getBinarySize(chunk, encoding);
+    this.count += this.getBinarySize(chunk, encoding); // накапливаем количество переданных данных в БАЙТАХ. Для этого - перекодируем в байты
     if ( this.count > this.limit) {
       return callback(new LimitExceededError());
     }
