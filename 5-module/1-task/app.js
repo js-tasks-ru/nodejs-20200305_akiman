@@ -14,7 +14,7 @@ router.get('/subscribe', async (ctx, next) => {
     const message = await new Promise(resolve => {
         clients.add(resolve);
 
-        ctx.req('aborted', () => {
+        ctx.req.on('aborted', () => {
             clients.delete(resolve);
             resolve();
         })
@@ -28,7 +28,7 @@ router.post('/publish', async (ctx, next) => {
     const message = ctx.request.body.message;
 
     if (!message) {
-        ctx.throw(500, 'message is empty');
+        ctx.throw(400, 'message is empty');
     }
 
     clients.forEach(resolve => resolve(message));
